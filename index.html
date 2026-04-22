@@ -411,54 +411,29 @@ textarea.fi{resize:none;min-height:80px}
 
 /* ══════════ RESPONSIVE ══════════ */
 @media(max-width:768px){
-  /* nav */
   .nav-links,.nav-cta{display:none}
   .nav-burger{display:flex}
-
-  /* hero */
   .hero-bike{width:130vw;right:-30%;top:auto;bottom:0;transform:none;animation:bkMob 1.8s cubic-bezier(.16,1,.3,1) .4s forwards}
   @keyframes bkMob{from{opacity:0;transform:translateX(20px)}to{opacity:.22;transform:none}}
   .hero-scroll{display:none}
   #hero{padding-bottom:clamp(56px,14vw,100px)}
-
-  /* cards always show info on mobile */
   .bci2{transform:none!important}
   .b-desc,.b-price{opacity:1!important;transform:none!important}
-
-  /* story */
   #story{height:140vh}
-
-  /* testimonials */
   .tc{min-width:calc(100vw - 32px)}
-
-  /* footer */
   footer{flex-direction:column;align-items:flex-start;gap:12px}
-
-  /* services page */
   .svc-meta,.svc-arr{display:none}
   .svc-cards{grid-template-columns:1fr}
-
-  /* about */
   .avis{aspect-ratio:4/3}
   .mv-sec{grid-template-columns:1fr}
   .val-grid{grid-template-columns:1fr 1fr}
-
-  /* contact */
   #contact-inner{grid-template-columns:1fr;padding-top:0}
   .cleft{padding-top:clamp(76px,14vw,110px)}
   .promise-in{grid-template-columns:1fr}
-
-  /* shop */
   .shop-grid{padding-left:0;padding-right:0;gap:1px}
-
-  /* gallery */
   .gallery-grid{padding-left:0;padding-right:0}
   .gallery-item:nth-child(n){aspect-ratio:1/1}
-
-  /* map */
   .map-layout{grid-template-columns:1fr}
-
-  /* compare */
   .compare-wrap{margin-left:calc(-1*var(--pad));margin-right:calc(-1*var(--pad));padding:0 var(--pad)}
 }
 
@@ -481,7 +456,6 @@ textarea.fi{resize:none;min-height:80px}
   .map-layout{grid-template-columns:1fr}
 }
 
-/* touch devices — always show bike card info */
 @media(hover:none){
   .bci2{transform:none!important}
   .b-desc,.b-price{opacity:1!important;transform:none!important}
@@ -505,7 +479,7 @@ textarea.fi{resize:none;min-height:80px}
 <div id="cursor-ring"></div>
 
 <!-- ══ WHATSAPP FLOAT ══ -->
-<a id="wa-btn" href="https://wa.me/919876543210?text=Hi%20GearMyCycle!%20I%20want%20to%20know%20more%20about%20your%20bikes." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+<a id="wa-btn" href="https://wa.me/917009415428?text=Hi%20GearMyCycle!%20I%20want%20to%20know%20more%20about%20your%20bikes." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
@@ -866,7 +840,7 @@ textarea.fi{resize:none;min-height:80px}
       <div class="sec-label" style="margin-bottom:12px">Still have questions?</div>
       <p style="font-size:.84rem;color:var(--g4);line-height:1.8;margin-bottom:20px">Can't find what you're looking for? We're just a message away. Reach out on WhatsApp or drop us an email.</p>
       <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="ft-btn" style="margin-top:0"><span>WhatsApp Us &#8594;</span></a>
+        <a href="https://wa.me/917009415428" target="_blank" rel="noopener" class="ft-btn" style="margin-top:0"><span>WhatsApp Us &#8594;</span></a>
         <a href="#" onclick="showPage('contact');return false;" style="display:inline-flex;align-items:center;padding:13px 28px;border:1px solid rgba(240,237,232,.2);font-family:'Barlow Condensed';font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--white);text-decoration:none;transition:border-color .3s">Email Us</a>
       </div>
     </div>
@@ -917,14 +891,14 @@ textarea.fi{resize:none;min-height:80px}
     <h2 class="sec-title reveal d1">VISIT THE<br><em>WORKSHOP</em></h2>
     <div class="map-layout reveal d2">
       <div class="map-embed">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d109735.95638097903!2d75.77203!3d30.900965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a837462345a93%3A0x3d6a45571e39e89d!2sLudhiana%2C%20Punjab!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="GearMyCycle Location"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3408.758387339801!2d75.6290325!3d31.310422399999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a59426c0b03c1%3A0x490efd7d2eab5bc7!2sSunil%20cycle%20works!5e0!3m2!1sen!2sin!4v1776865850628!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="GearMyCycle Location"></iframe>
       </div>
       <div class="map-info">
         <div>
           <div class="map-info-title">GEAR<span>MY</span>CYCLE<br>WORKSHOP</div>
           <div class="map-detail-list">
-            <div class="map-detail"><div class="mdl">Address</div><div class="mdv">Model Town Road, Near Civic Centre<br>Ludhiana, Punjab — 141002</div></div>
-            <div class="map-detail"><div class="mdl">Phone</div><div class="mdv"><a href="tel:+919876543210">+91 98765 43210</a></div></div>
+            <div class="map-detail"><div class="mdl">Address</div><div class="mdv">Sunil Cycle Works, Ludhiana<br>Punjab — 141001</div></div>
+            <div class="map-detail"><div class="mdl">Phone / WhatsApp</div><div class="mdv"><a href="tel:+917009415428">+91 70094 15428</a></div></div>
             <div class="map-detail"><div class="mdl">Email</div><div class="mdv"><a href="mailto:hello@gearmycycle.in">hello@gearmycycle.in</a></div></div>
             <div class="map-detail"><div class="mdl">Instagram</div><div class="mdv"><a href="https://www.instagram.com/gearmycycle" target="_blank" rel="noopener">@gearmycycle</a></div></div>
           </div>
@@ -935,7 +909,7 @@ textarea.fi{resize:none;min-height:80px}
           <div class="mh-row"><span>Saturday</span><span class="open">9 AM – 8 PM</span></div>
           <div class="mh-row"><span>Sunday</span><span class="open">10 AM – 6 PM</span></div>
         </div>
-        <a href="https://maps.google.com/?q=Ludhiana,Punjab,India" target="_blank" rel="noopener" class="dir-btn">Get Directions &#8594;</a>
+        <a href="https://maps.google.com/?q=Sunil+cycle+works+Ludhiana+Punjab+India" target="_blank" rel="noopener" class="dir-btn">Get Directions &#8594;</a>
       </div>
     </div>
   </section>
@@ -991,13 +965,13 @@ textarea.fi{resize:none;min-height:80px}
       <div>
         <div class="cdetails">
           <div class="cdi"><div class="cdl">Instagram</div><div class="cdv"><a href="https://www.instagram.com/gearmycycle" target="_blank" rel="noopener">@gearmycycle</a></div></div>
-          <div class="cdi"><div class="cdl">WhatsApp</div><div class="cdv"><a href="https://wa.me/919876543210" target="_blank" rel="noopener">+91 98765 43210</a></div></div>
+          <div class="cdi"><div class="cdl">WhatsApp</div><div class="cdv"><a href="https://wa.me/917009415428" target="_blank" rel="noopener">+91 70094 15428</a></div></div>
           <div class="cdi"><div class="cdl">Business Hours</div><div class="cdv">Monday – Sunday<br>9:00 AM – 8:00 PM</div></div>
           <div class="cdi"><div class="cdl">Email</div><div class="cdv"><a href="mailto:hello@gearmycycle.in">hello@gearmycycle.in</a></div></div>
         </div>
         <div class="csocials" style="margin-top:20px">
           <a href="https://www.instagram.com/gearmycycle" target="_blank" rel="noopener" class="soc-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".5" fill="currentColor" stroke="none"/></svg>Instagram</a>
-          <a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="soc-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+          <a href="https://wa.me/917009415428" target="_blank" rel="noopener" class="soc-link"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
         </div>
       </div>
     </div>
@@ -1041,7 +1015,6 @@ function showPage(n){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   const pg=document.getElementById('page-'+n);
   if(pg){pg.classList.add('active');window.scrollTo({top:0,behavior:'instant'});setTimeout(initReveal,60);}
-  // update nav active state
   document.querySelectorAll('.nav-links a[data-page]').forEach(a=>{
     a.classList.toggle('active-link',a.dataset.page===n);
   });
