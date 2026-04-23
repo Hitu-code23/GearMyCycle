@@ -64,7 +64,70 @@ body.hov #cursor-ring{width:56px;height:56px;opacity:.6}
 #btt:hover{border-color:var(--neon);background:var(--neon);color:var(--black);transform:translateY(-3px)}
 @media(max-width:768px){#btt{bottom:80px;left:16px;width:40px;height:40px}}
 
-/* ══ NAV ══ */
+	/* ══ MECHANICAL SCROLL INDICATOR ══ */
+	.mech-scroll {
+	  position: absolute;
+	  bottom: 40px;
+	  left: 50%;
+	  transform: translateX(-50%);
+	  width: 64px;
+	  height: 64px;
+	  cursor: pointer;
+	  z-index: 10;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	}
+	.mech-scroll:hover { transform: translateX(-50%) scale(1.1); }
+	.mech-scroll:active { transform: translateX(-50%) scale(0.95); }
+	.mech-ring {
+	  position: absolute;
+	  inset: 0;
+	  border: 1px solid rgba(200, 255, 0, 0.2);
+	  border-radius: 50%;
+	  background: radial-gradient(circle, transparent 60%, rgba(200, 255, 0, 0.05) 100%);
+	  transition: border-color 0.3s, box-shadow 0.3s;
+	}
+	.mech-ring::before {
+	  content: '';
+	  position: absolute;
+	  inset: -4px;
+	  border-radius: 50%;
+	  background: repeating-conic-gradient(from 0deg, transparent 0deg 5deg, rgba(200, 255, 0, 0.15) 5.1deg 10deg);
+	  mask: radial-gradient(circle, transparent 92%, black 93%);
+	  -webkit-mask: radial-gradient(circle, transparent 92%, black 93%);
+	  opacity: 0.6;
+	  transition: opacity 0.3s;
+	}
+	.mech-scroll:hover .mech-ring {
+	  border-color: var(--neon);
+	  box-shadow: 0 0 20px rgba(200, 255, 0, 0.2);
+	  animation: gearRotate 4s linear infinite;
+	}
+	.mech-scroll:hover .mech-ring::before { opacity: 1; }
+	@keyframes gearRotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+	.mech-arrow { position: relative; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; }
+	.mech-arrow svg { width: 100%; height: 100%; fill: var(--white); transition: fill 0.3s, transform 0.3s; }
+	.mech-scroll:hover .mech-arrow svg { fill: var(--neon); transform: translateY(3px); }
+	.mech-label {
+	  position: absolute;
+	  top: 100%;
+	  left: 50%;
+	  transform: translateX(-50%);
+	  margin-top: 12px;
+	  font-family: 'Barlow Condensed', sans-serif;
+	  font-size: 0.6rem;
+	  letter-spacing: 0.4em;
+	  text-transform: uppercase;
+	  color: var(--g4);
+	  opacity: 0.6;
+	  transition: opacity 0.3s, color 0.3s;
+	  white-space: nowrap;
+	}
+	.mech-scroll:hover .mech-label { opacity: 1; color: var(--neon); }
+
+	/* ══ NAV ══ */
 nav{position:fixed;top:0;left:0;right:0;z-index:5000;display:flex;align-items:center;justify-content:space-between;padding:14px var(--pad);background:linear-gradient(to bottom,rgba(7,7,7,.94),transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.2rem,4vw,1.8rem);letter-spacing:.12em;color:var(--white);text-decoration:none;position:relative;z-index:5001;flex-shrink:0}
 .nav-logo span{color:var(--neon)}
@@ -564,7 +627,13 @@ textarea.fi{resize:none;min-height:80px}
         <span>Shop Bikes</span><span class="h-arr">&#8594;</span>
       </a>
     </div>
-    <div class="hero-scroll"><div class="sc-line"></div><span>Scroll</span></div>
+    <div class="mech-scroll" onclick="document.getElementById('featured').scrollIntoView({behavior:'smooth'})">
+      <div class="mech-ring"></div>
+      <div class="mech-arrow">
+        <svg viewBox="0 0 24 24"><path d="M12 16.5l-6-6h12z"/></svg>
+      </div>
+      <div class="mech-label">Explore</div>
+    </div>
   </section>
 
   <!-- FEATURED -->
