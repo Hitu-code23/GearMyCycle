@@ -64,68 +64,92 @@ body.hov #cursor-ring{width:56px;height:56px;opacity:.6}
 #btt:hover{border-color:var(--neon);background:var(--neon);color:var(--black);transform:translateY(-3px)}
 @media(max-width:768px){#btt{bottom:80px;left:16px;width:40px;height:40px}}
 
-	/* ══ MECHANICAL SCROLL INDICATOR ══ */
-	.mech-scroll {
+	/* ══ PRECISION HUB SCROLL INDICATOR ══ */
+	.hub-scroll {
 	  position: absolute;
-	  bottom: 40px;
+	  bottom: 50px;
 	  left: 50%;
 	  transform: translateX(-50%);
-	  width: 64px;
-	  height: 64px;
+	  width: 80px;
+	  height: 80px;
 	  cursor: pointer;
 	  z-index: 10;
 	  display: flex;
 	  align-items: center;
 	  justify-content: center;
-	  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	}
-	.mech-scroll:hover { transform: translateX(-50%) scale(1.1); }
-	.mech-scroll:active { transform: translateX(-50%) scale(0.95); }
-	.mech-ring {
+	.hub-outer {
 	  position: absolute;
 	  inset: 0;
-	  border: 1px solid rgba(200, 255, 0, 0.2);
+	  border: 1px solid rgba(200, 255, 0, 0.1);
 	  border-radius: 50%;
-	  background: radial-gradient(circle, transparent 60%, rgba(200, 255, 0, 0.05) 100%);
-	  transition: border-color 0.3s, box-shadow 0.3s;
+	  transition: border-color 0.4s, box-shadow 0.4s;
 	}
-	.mech-ring::before {
-	  content: '';
+	.hub-spokes {
 	  position: absolute;
-	  inset: -4px;
+	  inset: 5px;
 	  border-radius: 50%;
-	  background: repeating-conic-gradient(from 0deg, transparent 0deg 5deg, rgba(200, 255, 0, 0.15) 5.1deg 10deg);
-	  mask: radial-gradient(circle, transparent 92%, black 93%);
-	  -webkit-mask: radial-gradient(circle, transparent 92%, black 93%);
-	  opacity: 0.6;
-	  transition: opacity 0.3s;
+	  background: repeating-conic-gradient(from 0deg, transparent 0deg 1deg, rgba(240, 237, 232, 0.05) 1.5deg 2deg, transparent 2.5deg 15deg);
+	  animation: hubSpin 20s linear infinite;
+	  transition: opacity 0.4s;
 	}
-	.mech-scroll:hover .mech-ring {
+	.hub-core {
+	  position: relative;
+	  width: 32px;
+	  height: 32px;
+	  background: var(--black);
+	  border: 1px solid rgba(200, 255, 0, 0.3);
+	  border-radius: 50%;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+	  z-index: 2;
+	}
+	.hub-core svg {
+	  width: 14px;
+	  height: 14px;
+	  fill: var(--white);
+	  transition: fill 0.3s, transform 0.3s;
+	}
+	.hub-scroll:hover .hub-outer {
 	  border-color: var(--neon);
-	  box-shadow: 0 0 20px rgba(200, 255, 0, 0.2);
-	  animation: gearRotate 4s linear infinite;
+	  box-shadow: 0 0 25px rgba(200, 255, 0, 0.15);
 	}
-	.mech-scroll:hover .mech-ring::before { opacity: 1; }
-	@keyframes gearRotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-	.mech-arrow { position: relative; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; }
-	.mech-arrow svg { width: 100%; height: 100%; fill: var(--white); transition: fill 0.3s, transform 0.3s; }
-	.mech-scroll:hover .mech-arrow svg { fill: var(--neon); transform: translateY(3px); }
-	.mech-label {
+	.hub-scroll:hover .hub-spokes {
+	  animation-duration: 8s;
+	  opacity: 0.3;
+	}
+	.hub-scroll:hover .hub-core {
+	  border-color: var(--neon);
+	  transform: scale(1.1);
+	  box-shadow: 0 0 15px rgba(200, 255, 0, 0.4);
+	}
+	.hub-scroll:hover .hub-core svg {
+	  fill: var(--neon);
+	  transform: translateY(2px);
+	}
+	.hub-label {
 	  position: absolute;
 	  top: 100%;
 	  left: 50%;
 	  transform: translateX(-50%);
-	  margin-top: 12px;
+	  margin-top: 15px;
 	  font-family: 'Barlow Condensed', sans-serif;
-	  font-size: 0.6rem;
-	  letter-spacing: 0.4em;
+	  font-size: 0.55rem;
+	  letter-spacing: 0.5em;
 	  text-transform: uppercase;
 	  color: var(--g4);
-	  opacity: 0.6;
-	  transition: opacity 0.3s, color 0.3s;
+	  opacity: 0.5;
+	  transition: opacity 0.3s, color 0.3s, letter-spacing 0.3s;
 	  white-space: nowrap;
 	}
-	.mech-scroll:hover .mech-label { opacity: 1; color: var(--neon); }
+	.hub-scroll:hover .hub-label {
+	  opacity: 1;
+	  color: var(--neon);
+	  letter-spacing: 0.6em;
+	}
+	@keyframes hubSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
 	/* ══ NAV ══ */
 nav{position:fixed;top:0;left:0;right:0;z-index:5000;display:flex;align-items:center;justify-content:space-between;padding:14px var(--pad);background:linear-gradient(to bottom,rgba(7,7,7,.94),transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
@@ -627,12 +651,13 @@ textarea.fi{resize:none;min-height:80px}
         <span>Shop Bikes</span><span class="h-arr">&#8594;</span>
       </a>
     </div>
-    <div class="mech-scroll" onclick="document.getElementById('featured').scrollIntoView({behavior:'smooth'})">
-      <div class="mech-ring"></div>
-      <div class="mech-arrow">
+    <div class="hub-scroll" onclick="document.getElementById('featured').scrollIntoView({behavior:'smooth'})">
+      <div class="hub-outer"></div>
+      <div class="hub-spokes"></div>
+      <div class="hub-core">
         <svg viewBox="0 0 24 24"><path d="M12 16.5l-6-6h12z"/></svg>
       </div>
-      <div class="mech-label">Explore</div>
+      <div class="hub-label">Precision Motion</div>
     </div>
   </section>
 
