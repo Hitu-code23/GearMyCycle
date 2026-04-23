@@ -211,7 +211,7 @@ footer{padding:32px var(--pad);border-top:1px solid rgba(240,237,232,.07);displa
 	@keyframes lnRev{to{opacity:1;transform:none}}
 	
 	/* Kinetic Parallax */
-	.parallax-text {
+	.{
 	  will-change: transform;
 	  transition: transform 0.1s linear;
 	}
@@ -597,17 +597,7 @@ textarea.fi{resize:none;min-height:80px}
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
 
-<!-- ══ SOUND TOGGLE ══ -->
-<div class="sound-toggle" id="soundToggle" onclick="toggleSound()" title="Toggle Ambient Soundscape">
-  <div class="sound-bars">
-    <div class="s-bar" style="height: 8px;"></div>
-    <div class="s-bar" style="height: 12px;"></div>
-    <div class="s-bar" style="height: 6px;"></div>
-  </div>
-</div>
-<audio id="ambientAudio" loop>
-  <source src="https://files.catbox.moe/8y8y9y.mp3" type="audio/mpeg">
-</audio>
+
 
 <!-- ══ WHATSAPP FLOAT ══ -->
 <a id="wa-btn" href="https://wa.me/917009415428?text=Hi%20GearMyCycle!%20I%20want%20to%20know%20more%20about%20your%20bikes." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
@@ -645,7 +635,7 @@ textarea.fi{resize:none;min-height:80px}
 
 <!-- ════════════════════ HOME ════════════════════ -->
 <div id="page-home" class="page active">
-	  <section id="hero" class="parallax-container">
+	  <section id="hero" class="">
     <div class="hero-bg">
       <svg class="speed-lines" viewBox="0 0 1440 900" preserveAspectRatio="none">
         <line x1="0" y1="300" x2="1440" y2="280" stroke="white" stroke-width="1"/>
@@ -662,7 +652,7 @@ textarea.fi{resize:none;min-height:80px}
     </div>
     <div class="hero-content">
       <div class="h-eye">Premium Cycling Culture · Jalandhar</div>
-	      <h1 class="h-title parallax-text" data-speed="0.2">
+	      <h1 class="h-title">
 	        <span class="ln">RIDE</span>
 	        <span class="ln">BEYOND</span>
 	        <span class="ln">ORDINARY</span>
@@ -803,41 +793,6 @@ textarea.fi{resize:none;min-height:80px}
     <button class="filt-btn" onclick="filterShop('road',this)">Road</button>
     <button class="filt-btn" onclick="filterShop('custom',this)">Custom</button>
   </div>
-  <div class="config-wrap reveal">
-    <div class="config-viz" id="configViz">
-      <svg viewBox="0 0 400 260" fill="none" id="configBike">
-        <circle cx="100" cy="180" r="70" stroke="#2a2a2a" stroke-width="7"/>
-        <circle cx="300" cy="180" r="70" stroke="#2a2a2a" stroke-width="7"/>
-        <path id="bikeFrame" d="M170 90L270 100L160 175L170 90L160 175L100 180M270 100L300 180" stroke="#c8ff00" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
-        <path id="bikeBars" d="M170 90L175 56M152 52Q175 42 198 52" stroke="#ddd" stroke-width="5" stroke-linecap="round" fill="none"/>
-        <circle cx="160" cy="175" r="12" fill="#111" stroke="#c8ff00" stroke-width="2"/>
-      </svg>
-    </div>
-    <div class="config-controls">
-      <div>
-        <div class="config-group-title">Frame Color</div>
-        <div class="config-options">
-          <button class="opt-btn active" style="background:#c8ff00" onclick="updateConfig('color','#c8ff00',this)"></button>
-          <button class="opt-btn" style="background:#f0ede8" onclick="updateConfig('color','#f0ede8',this)"></button>
-          <button class="opt-btn" style="background:#ff3e3e" onclick="updateConfig('color','#ff3e3e',this)"></button>
-          <button class="opt-btn" style="background:#3e8bff" onclick="updateConfig('color','#3e8bff',this)"></button>
-        </div>
-      </div>
-      <div>
-        <div class="config-group-title">Handlebar Style</div>
-        <div class="config-options">
-          <button class="type-btn active" onclick="updateConfig('bars','drop',this)">Drop Bars</button>
-          <button class="type-btn" onclick="updateConfig('bars','flat',this)">Flat Bars</button>
-        </div>
-      </div>
-      <div style="margin-top:10px">
-        <div style="font-family:'Bebas Neue';font-size:1.5rem;margin-bottom:5px">YOUR CUSTOM BUILD</div>
-        <div style="font-family:'Barlow Condensed';font-size:0.8rem;color:var(--g4)">Estimated from ₹ 32,000</div>
-        <button class="shop-btn" style="margin-top:15px;width:100%" onclick="showPage('contact')">Order This Build</button>
-      </div>
-    </div>
-  </div>
-
   <div class="shop-grid" id="shopGrid">
     <div class="shop-card reveal" data-cat="urban">
       <div class="shop-img"><span class="shop-badge">Bestseller</span><svg viewBox="0 0 400 260" fill="none"><circle cx="100" cy="180" r="70" stroke="#2a2a2a" stroke-width="7"/><circle cx="100" cy="180" r="14" fill="#111" stroke="#c8ff00" stroke-width="2"/><circle cx="300" cy="180" r="70" stroke="#2a2a2a" stroke-width="7"/><circle cx="300" cy="180" r="14" fill="#111" stroke="#c8ff00" stroke-width="2"/><path d="M170 90L270 100" stroke="#ddd" stroke-width="6" stroke-linecap="round"/><path d="M270 100L160 175" stroke="#ccc" stroke-width="7" stroke-linecap="round"/><path d="M170 90L160 175" stroke="#bbb" stroke-width="6" stroke-linecap="round"/><path d="M160 175L100 180" stroke="#aaa" stroke-width="5" stroke-linecap="round"/><path d="M270 100L300 180" stroke="#ccc" stroke-width="6" stroke-linecap="round"/><circle cx="160" cy="175" r="12" fill="#111" stroke="#c8ff00" stroke-width="2"/></svg></div>
@@ -1071,27 +1026,7 @@ textarea.fi{resize:none;min-height:80px}
     <div class="svch reveal d1">THE<br>FULL<br><span style="color:var(--neon)">EXPERIENCE</span></div>
     <p class="reveal d2" style="font-size:.86rem;color:var(--g4);max-width:460px;line-height:1.8;margin-top:18px">From first consultation to lifetime maintenance, GearMyCycle is your complete cycling partner.</p>
   </section>
-  <section class="xray-sec reveal">
-    <div class="sec-label">Engineering Deep Dive</div>
-    <h2 class="sec-title">THE <em>X-RAY</em><br>EXPLORER</h2>
-    <div class="xray-container">
-      <div class="xray-viz">
-        <svg viewBox="0 0 400 260" fill="none" class="xray-bike">
-          <circle cx="100" cy="180" r="70" stroke="white" stroke-width="2"/>
-          <circle cx="300" cy="180" r="70" stroke="white" stroke-width="2"/>
-          <path d="M170 90L270 100L160 175L170 90L160 175L100 180M270 100L300 180" stroke="white" stroke-width="3"/>
-        </svg>
-        <div class="xray-part" style="top:35%; left:42%" onmouseover="showXray('Head Tube', 'Precision-machined for zero-play steering. Tapered design ensures maximum front-end stiffness during aggressive cornering.')"></div>
-        <div class="xray-part" style="top:65%; left:40%" onmouseover="showXray('Bottom Bracket', 'The heart of your power. Ultra-smooth ceramic bearings housed in a reinforced shell for 100% energy transfer.')"></div>
-        <div class="xray-part" style="top:68%; left:75%" onmouseover="showXray('Rear Dropout', 'Custom-forged vertical dropouts with integrated derailleur hanger. Built to withstand high torque without flexing.')"></div>
-      </div>
-      <div class="xray-info" id="xrayInfo">
-        <div class="xray-tag">Select a component</div>
-        <div class="xray-name">HOVER TO<br>EXPLORE</div>
-        <div class="xray-desc">Every GearMyCycle frame is a collection of intentional engineering decisions. Hover over the neon nodes to see the soul of the machine.</div>
-      </div>
-    </div>
-  </section>
+  
 
   <div class="svc-cards">
     <div class="scard reveal"><div class="snum">01</div><div class="sline"></div><div class="sn">CUSTOM BIKE BUILDS</div><div class="sd">Your vision, our craft. Every build begins with a deep consultation — we learn how you ride, where you ride, and who you are.</div><ul class="sf"><li>Geometry fitting session</li><li>Component selection guidance</li><li>Full custom paint &amp; finish</li><li>3–4 week build timeline</li></ul></div>
@@ -1217,37 +1152,7 @@ window.addEventListener('scroll',()=>{btt.classList.toggle('show',window.scrollY
 }
 initReveal();
 
-	/* ══ KINETIC & STORY PARALLAX ══ */
-	window.addEventListener('scroll',()=>{
-	  const isHome = document.getElementById('page-home').classList.contains('active');
-	  if(!isHome) return;
-
-	  const scrollY = window.scrollY;
-	  
-	  // Kinetic Parallax for Hero Text
-	  const pTexts = document.querySelectorAll('.parallax-text');
-	  pTexts.forEach(el => {
-	    const speed = el.dataset.speed || 0.1;
-	    el.style.transform = `translateY(${scrollY * speed}px)`;
-	  });
-
-	  // Story Section Parallax
-	  const s=document.getElementById('story');
-	  if(s){
-	    const r=s.getBoundingClientRect();
-	    const prog=Math.max(0,Math.min(1,-r.top/Math.max(1,s.offsetHeight-window.innerHeight)));
-	    ['sl1','sl2','sl3'].forEach((id,i)=>{
-	      const el=document.getElementById(id);if(!el)return;
-	      el.classList.toggle('active',prog>i*.28+.08);
-	    });
-	    
-	    // Background bike parallax in story
-	    const sBike = s.querySelector('.story-bike-bg svg');
-	    if(sBike) sBike.style.transform = `translateY(${r.top * 0.1}px) rotate(${r.top * 0.02}deg)`;
-	  }
-	},{passive:true});
-
-/* ══ TESTIMONIAL SLIDER ══ */
+	/* ══ TESTIMONIAL SLIDER ══ */
 let si=0;
 function cardCount(){const t=document.getElementById('ttrack');return t?t.querySelectorAll('.tc').length:4;}
 function updSlider(){
@@ -1281,142 +1186,6 @@ if(window.matchMedia('(pointer:fine)').matches){
     card.addEventListener('mouseleave',()=>{const inn=card.querySelector('.bci');if(inn)inn.style.transform='';});
   });
 }
-
-	/* ══ AMBIENT SOUNDSCAPE ══ */
-	.sound-toggle {
-	  position: fixed;
-	  bottom: 24px;
-	  right: 90px;
-	  z-index: 8000;
-	  width: 44px;
-	  height: 44px;
-	  background: var(--g1);
-	  border: 1px solid rgba(240, 237, 232, 0.15);
-	  display: flex;
-	  align-items: center;
-	  justify-content: center;
-	  cursor: pointer;
-	  transition: all 0.3s;
-	}
-	.sound-toggle:hover { border-color: var(--neon); background: rgba(200, 255, 0, 0.05); }
-	.sound-toggle.active { color: var(--neon); border-color: var(--neon); }
-	.sound-bars { display: flex; align-items: flex-end; gap: 2px; height: 12px; }
-	.s-bar { width: 2px; background: currentColor; transition: height 0.2s; }
-	.sound-toggle.active .s-bar { animation: soundWave 1s ease-in-out infinite alternate; }
-	.sound-toggle.active .s-bar:nth-child(2) { animation-delay: 0.2s; }
-	.sound-toggle.active .s-bar:nth-child(3) { animation-delay: 0.4s; }
-	@keyframes soundWave { from { height: 4px; } to { height: 12px; } }
-	@media (max-width: 768px) { .sound-toggle { bottom: 80px; right: 75px; width: 40px; height: 40px; } }
-
-	/* ══ X-RAY EXPLORER ══ */
-	.xray-sec { padding: 80px var(--pad); background: #0a0a0a; overflow: hidden; }
-	.xray-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-	.xray-viz { position: relative; }
-	.xray-bike { width: 100%; height: auto; opacity: 0.15; transition: opacity 0.5s; }
-	.xray-part {
-	  position: absolute; width: 12px; height: 12px; background: var(--neon); border-radius: 50%; cursor: pointer;
-	  box-shadow: 0 0 15px var(--neon); animation: pulse 2s infinite;
-	}
-	.xray-part::after {
-	  content: ''; position: absolute; inset: -10px; border: 1px solid var(--neon); border-radius: 50%; opacity: 0; transition: opacity 0.3s, transform 0.3s;
-	}
-	.xray-part:hover::after { opacity: 1; transform: scale(1.2); }
-	.xray-info { min-height: 200px; display: flex; flex-direction: column; justify-content: center; }
-	.xray-tag { font-family: 'Barlow Condensed'; font-size: 0.6rem; letter-spacing: 0.4em; color: var(--neon); margin-bottom: 10px; text-transform: uppercase; }
-	.xray-name { font-family: 'Bebas Neue'; font-size: 3rem; margin-bottom: 15px; line-height: 1; }
-	.xray-desc { font-size: 0.85rem; color: var(--g4); line-height: 1.8; max-width: 400px; }
-	@keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
-	@media (max-width: 800px) { .xray-container { grid-template-columns: 1fr; } }
-
-	/* ══ CONFIGURATOR ══ */
-	.config-wrap {
-	  background: var(--g1);
-	  border: 1px solid rgba(240, 237, 232, 0.05);
-	  padding: clamp(20px, 4vw, 40px);
-	  margin-top: 40px;
-	  display: grid;
-	  grid-template-columns: 1.2fr 1fr;
-	  gap: 40px;
-	  align-items: center;
-	}
-	.config-viz {
-	  position: relative;
-	  aspect-ratio: 16/10;
-	  background: radial-gradient(circle at center, #1a1a1a 0%, #070707 100%);
-	  display: flex;
-	  align-items: center;
-	  justify-content: center;
-	  overflow: hidden;
-	}
-	.config-viz svg { width: 85%; height: auto; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
-	.config-controls { display: flex; flex-direction: column; gap: 24px; }
-	.config-group-title { font-family: 'Barlow Condensed'; font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--g4); margin-bottom: 12px; }
-	.config-options { display: flex; gap: 12px; flex-wrap: wrap; }
-	.opt-btn {
-	  width: 36px; height: 36px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; transition: transform 0.2s, border-color 0.2s;
-	}
-	.opt-btn.active { border-color: var(--neon); transform: scale(1.1); }
-	.type-btn {
-	  padding: 8px 16px; background: transparent; border: 1px solid rgba(240, 237, 232, 0.1); color: var(--white); font-family: 'Barlow Condensed'; font-size: 0.7rem; letter-spacing: 0.1em; cursor: pointer; transition: all 0.3s;
-	}
-	.type-btn.active { background: var(--neon); color: var(--black); border-color: var(--neon); }
-	@media (max-width: 900px) { .config-wrap { grid-template-columns: 1fr; } }
-
-	/* ══ SOUNDSCAPE LOGIC ══ */
-	let soundInit = false;
-	function toggleSound(){
-	  const audio = document.getElementById('ambientAudio');
-	  const btn = document.getElementById('soundToggle');
-	  
-	  if(!soundInit){
-	    // Using a placeholder high-quality freehub sound if the link works, 
-	    // otherwise it will fail gracefully.
-	    audio.volume = 0.15;
-	    soundInit = true;
-	  }
-
-	  if(audio.paused){
-	    audio.play().catch(e => console.log("Audio play blocked"));
-	    btn.classList.add('active');
-	  } else {
-	    audio.pause();
-	    btn.classList.remove('active');
-	  }
-	}
-
-	/* ══ X-RAY LOGIC ══ */
-	function showXray(name, desc){
-	  const info = document.getElementById('xrayInfo');
-	  info.style.opacity = '0';
-	  setTimeout(() => {
-	    info.innerHTML = `<div class="xray-tag">Component Detail</div><div class="xray-name">${name.toUpperCase()}</div><div class="xray-desc">${desc}</div>`;
-	    info.style.opacity = '1';
-	  }, 200);
-	}
-
-	/* ══ CONFIGURATOR LOGIC ══ */
-	function updateConfig(type,val,btn){
-	  const frame = document.getElementById('bikeFrame');
-	  const bars = document.getElementById('bikeBars');
-	  const viz = document.getElementById('configViz').querySelector('svg');
-	  
-	  btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
-	  btn.classList.add('active');
-
-	  if(type==='color'){
-	    frame.setAttribute('stroke',val);
-	    viz.style.transform = 'scale(1.05)';
-	    setTimeout(()=>viz.style.transform='scale(1)',300);
-	  } else if(type==='bars'){
-	    if(val==='drop'){
-	      bars.setAttribute('d','M170 90L175 56M152 52Q175 42 198 52');
-	    } else {
-	      bars.setAttribute('d','M170 90L175 56M140 56L210 56');
-	    }
-	    viz.style.transform = 'translateX(10px)';
-	    setTimeout(()=>viz.style.transform='translateX(0)',300);
-	  }
-	}
 
 	/* ══ SHOP FILTER ══ */
 	function filterShop(cat,btn){
@@ -1504,56 +1273,6 @@ async function submitForm(e){
     status.textContent='Something went wrong. Please WhatsApp us directly.';
   }
 }
-
-	/* ══ SOUNDSCAPE LOGIC ══ */
-	let soundInit = false;
-	function toggleSound(){
-	  const audio = document.getElementById('ambientAudio');
-	  const btn = document.getElementById('soundToggle');
-	  if(!soundInit){
-	    audio.volume = 0.15;
-	    soundInit = true;
-	  }
-	  if(audio.paused){
-	    audio.play().catch(e => console.log("Audio play blocked"));
-	    btn.classList.add('active');
-	  } else {
-	    audio.pause();
-	    btn.classList.remove('active');
-	  }
-	}
-
-	/* ══ X-RAY LOGIC ══ */
-	function showXray(name, desc){
-	  const info = document.getElementById('xrayInfo');
-	  info.style.opacity = '0';
-	  setTimeout(() => {
-	    info.innerHTML = `<div class="xray-tag">Component Detail</div><div class="xray-name">${name.toUpperCase()}</div><div class="xray-desc">${desc}</div>`;
-	    info.style.opacity = '1';
-	  }, 200);
-	}
-
-	/* ══ CONFIGURATOR LOGIC ══ */
-	function updateConfig(type,val,btn){
-	  const frame = document.getElementById('bikeFrame');
-	  const bars = document.getElementById('bikeBars');
-	  const viz = document.getElementById('configViz').querySelector('svg');
-	  btn.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
-	  btn.classList.add('active');
-	  if(type==='color'){
-	    frame.setAttribute('stroke',val);
-	    viz.style.transform = 'scale(1.05)';
-	    setTimeout(()=>viz.style.transform='scale(1)',300);
-	  } else if(type==='bars'){
-	    if(val==='drop'){
-	      bars.setAttribute('d','M170 90L175 56M152 52Q175 42 198 52');
-	    } else {
-	      bars.setAttribute('d','M170 90L175 56M140 56L210 56');
-	    }
-	    viz.style.transform = 'translateX(10px)';
-	    setTimeout(()=>viz.style.transform='translateX(0)',300);
-	  }
-	}
 
 	/* ══ HASH ROUTING — bookmarkable URLs ══ */
 	(function(){
