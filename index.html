@@ -111,9 +111,10 @@ footer{padding:32px var(--pad);border-top:1px solid rgba(240,237,232,.07);displa
 #hero{position:relative;height:100svh;min-height:560px;display:flex;align-items:flex-end;overflow:hidden;padding:0 var(--pad) clamp(44px,8vw,90px)}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 60% 40%,#1c1c1c 0%,#070707 70%)}
 .speed-lines{position:absolute;inset:0;pointer-events:none;opacity:.04}
-.hero-bike{position:absolute;right:0;top:0;width:100%;height:100%;opacity:0;animation:bkIn 1.8s cubic-bezier(.16,1,.3,1) .4s forwards;z-index:1;overflow:hidden}
+.hero-bike{position:absolute;inset:0;width:100%;height:100%;opacity:0;animation:bkIn 1.8s cubic-bezier(.16,1,.3,1) .4s forwards;z-index:1;overflow:hidden;background:var(--black)}
 @keyframes bkIn{from{opacity:0}to{opacity:1}}
-.hero-bike video{width:100%;height:100%;object-fit:cover;filter:brightness(0.6) contrast(1.1)}
+.hero-bike video{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;filter:brightness(0.55) contrast(1.1)}
+@media(max-width:768px){.hero-bike video{filter:brightness(0.45) contrast(1.1)}}
 .hero-content{position:relative;z-index:2;max-width:560px}
 .h-eye{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:.4em;text-transform:uppercase;color:var(--neon);opacity:0;animation:fUp 1s ease .6s forwards;margin-bottom:10px}
 .h-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,11vw,12rem);line-height:.88;letter-spacing:.02em;overflow:hidden}
