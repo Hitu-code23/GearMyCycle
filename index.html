@@ -64,92 +64,82 @@ body.hov #cursor-ring{width:56px;height:56px;opacity:.6}
 #btt:hover{border-color:var(--neon);background:var(--neon);color:var(--black);transform:translateY(-3px)}
 @media(max-width:768px){#btt{bottom:80px;left:16px;width:40px;height:40px}}
 
-	/* ══ PRECISION HUB SCROLL INDICATOR ══ */
-	.hub-scroll {
+	/* ══ DIGITAL GAUGE SCROLL INDICATOR ══ */
+	.gauge-scroll {
 	  position: absolute;
-	  bottom: 50px;
+	  bottom: clamp(30px, 6vw, 60px);
 	  left: 50%;
 	  transform: translateX(-50%);
-	  width: 80px;
-	  height: 80px;
+	  width: 100px;
+	  height: 50px;
 	  cursor: pointer;
 	  z-index: 10;
 	  display: flex;
+	  flex-direction: column;
 	  align-items: center;
-	  justify-content: center;
+	  justify-content: flex-end;
+	  padding-bottom: 10px;
 	}
-	.hub-outer {
+	.gauge-track {
+	  position: absolute;
+	  top: 0;
+	  width: 80px;
+	  height: 40px;
+	  border: 1px solid rgba(200, 255, 0, 0.1);
+	  border-bottom: none;
+	  border-radius: 40px 40px 0 0;
+	  overflow: hidden;
+	}
+	.gauge-track::after {
+	  content: '';
 	  position: absolute;
 	  inset: 0;
-	  border: 1px solid rgba(200, 255, 0, 0.1);
-	  border-radius: 50%;
-	  transition: border-color 0.4s, box-shadow 0.4s;
+	  background: conic-gradient(from -90deg at 50% 100%, var(--neon) 0deg, transparent 0deg);
+	  opacity: 0.2;
+	  transition: opacity 0.3s;
 	}
-	.hub-spokes {
+	.gauge-needle {
 	  position: absolute;
-	  inset: 5px;
-	  border-radius: 50%;
-	  background: repeating-conic-gradient(from 0deg, transparent 0deg 1deg, rgba(240, 237, 232, 0.05) 1.5deg 2deg, transparent 2.5deg 15deg);
-	  animation: hubSpin 20s linear infinite;
-	  transition: opacity 0.4s;
-	}
-	.hub-core {
-	  position: relative;
-	  width: 32px;
-	  height: 32px;
-	  background: var(--black);
-	  border: 1px solid rgba(200, 255, 0, 0.3);
-	  border-radius: 50%;
-	  display: flex;
-	  align-items: center;
-	  justify-content: center;
-	  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-	  z-index: 2;
-	}
-	.hub-core svg {
-	  width: 14px;
-	  height: 14px;
-	  fill: var(--white);
-	  transition: fill 0.3s, transform 0.3s;
-	}
-	.hub-scroll:hover .hub-outer {
-	  border-color: var(--neon);
-	  box-shadow: 0 0 25px rgba(200, 255, 0, 0.15);
-	}
-	.hub-scroll:hover .hub-spokes {
-	  animation-duration: 8s;
-	  opacity: 0.3;
-	}
-	.hub-scroll:hover .hub-core {
-	  border-color: var(--neon);
-	  transform: scale(1.1);
-	  box-shadow: 0 0 15px rgba(200, 255, 0, 0.4);
-	}
-	.hub-scroll:hover .hub-core svg {
-	  fill: var(--neon);
-	  transform: translateY(2px);
-	}
-	.hub-label {
-	  position: absolute;
-	  top: 100%;
+	  bottom: 0;
 	  left: 50%;
-	  transform: translateX(-50%);
-	  margin-top: 15px;
+	  width: 2px;
+	  height: 35px;
+	  background: var(--neon);
+	  transform-origin: bottom center;
+	  transform: translateX(-50%) rotate(-70deg);
+	  box-shadow: 0 0 10px var(--neon);
+	  animation: gaugeSweep 3s ease-in-out infinite;
+	}
+	.gauge-label {
 	  font-family: 'Barlow Condensed', sans-serif;
-	  font-size: 0.55rem;
-	  letter-spacing: 0.5em;
+	  font-size: 0.6rem;
+	  letter-spacing: 0.4em;
 	  text-transform: uppercase;
-	  color: var(--g4);
-	  opacity: 0.5;
-	  transition: opacity 0.3s, color 0.3s, letter-spacing 0.3s;
-	  white-space: nowrap;
+	  color: var(--white);
+	  margin-top: 5px;
+	  z-index: 2;
+	  transition: color 0.3s, text-shadow 0.3s;
 	}
-	.hub-scroll:hover .hub-label {
-	  opacity: 1;
+	.gauge-scroll:hover .gauge-label {
 	  color: var(--neon);
-	  letter-spacing: 0.6em;
+	  text-shadow: 0 0 8px rgba(200, 255, 0, 0.5);
 	}
-	@keyframes hubSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+	.gauge-scroll:hover .gauge-track {
+	  border-color: rgba(200, 255, 0, 0.4);
+	}
+	.gauge-scroll:hover .gauge-needle {
+	  animation-duration: 1.5s;
+	}
+	@keyframes gaugeSweep {
+	  0%, 100% { transform: translateX(-50%) rotate(-70deg); }
+	  50% { transform: translateX(-50%) rotate(70deg); }
+	}
+	@media (max-width: 768px) {
+	  .gauge-scroll { width: 80px; height: 40px; bottom: 20px; }
+	  .gauge-track { width: 60px; height: 30px; }
+	  .gauge-needle { height: 25px; }
+	  .gauge-label { font-size: 0.5rem; letter-spacing: 0.3em; }
+	}
 
 	/* ══ NAV ══ */
 nav{position:fixed;top:0;left:0;right:0;z-index:5000;display:flex;align-items:center;justify-content:space-between;padding:14px var(--pad);background:linear-gradient(to bottom,rgba(7,7,7,.94),transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
@@ -651,13 +641,11 @@ textarea.fi{resize:none;min-height:80px}
         <span>Shop Bikes</span><span class="h-arr">&#8594;</span>
       </a>
     </div>
-    <div class="hub-scroll" onclick="document.getElementById('featured').scrollIntoView({behavior:'smooth'})">
-      <div class="hub-outer"></div>
-      <div class="hub-spokes"></div>
-      <div class="hub-core">
-        <svg viewBox="0 0 24 24"><path d="M12 16.5l-6-6h12z"/></svg>
+    <div class="gauge-scroll" onclick="document.getElementById('featured').scrollIntoView({behavior:'smooth'})">
+      <div class="gauge-track">
+        <div class="gauge-needle"></div>
       </div>
-      <div class="hub-label">Precision Motion</div>
+      <div class="gauge-label">EXPLORE</div>
     </div>
   </section>
 
