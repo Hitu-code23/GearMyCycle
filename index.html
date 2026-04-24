@@ -237,7 +237,10 @@ nav.open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
   width:90%;height:90%;object-fit:contain;
   filter:drop-shadow(0 0 15px rgba(0,0,0,0.8));
   transition:all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  mix-blend-mode:screen;
+}
+.bcr-img img.clean-img{
+  mix-blend-mode:lighten;
+  filter:brightness(1.1) contrast(1.2) saturate(1.1);
 }
 .bike-card-real:hover .bcr-img img{transform:scale(1.1) rotate(-3deg);filter:drop-shadow(0 10px 30px rgba(200,255,0,0.25))}
 .bcr-overlay{
@@ -691,7 +694,7 @@ footer{
 
       <div class="bike-card-real reveal d1" onclick="showPage('shop')">
         <div class="bcr-img">
-          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663590454131/ElvUtfflhuLlwgqI.png" alt="AVROX SAND Red Edition">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663590454131/ElvUtfflhuLlwgqI.png" alt="AVROX SAND Red Edition" class="clean-img">
           <div class="bcr-overlay"></div>
         </div>
         <div class="bcr-content">
@@ -712,7 +715,7 @@ footer{
 
       <div class="bike-card-real reveal d2" onclick="showPage('shop')">
         <div class="bcr-img">
-          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663590454131/eDaIEsLmIlftstRB.png" alt="AVROX SAND Blue Edition">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663590454131/eDaIEsLmIlftstRB.png" alt="AVROX SAND Blue Edition" class="clean-img">
           <div class="bcr-overlay"></div>
         </div>
         <div class="bcr-content">
