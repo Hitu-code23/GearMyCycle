@@ -331,6 +331,90 @@ footer{padding:60px var(--pad);padding-bottom:calc(60px + var(--safe-bottom));bo
 }
 .cf-success.show{display:block}
 
+/* ══ MAP SECTION ══ */
+.map-section{
+  padding:0 var(--pad) clamp(60px,8vw,100px);
+  max-width:1400px;
+  margin:0 auto;
+}
+.map-label{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:.65rem;
+  letter-spacing:.5em;
+  text-transform:uppercase;
+  color:var(--neon);
+  margin-bottom:20px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  -webkit-user-select:none;user-select:none;
+}
+.map-label::after{content:'';height:1px;width:40px;background:var(--neon);opacity:.3}
+.map-label::before{
+  content:'📍';
+  font-size:.9rem;
+}
+.map-container{
+  position:relative;
+  width:100%;
+  border:1px solid rgba(200,255,0,.15);
+  border-radius:2px;
+  overflow:hidden;
+  background:var(--g1);
+}
+.map-container::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  border:1px solid rgba(200,255,0,.08);
+  pointer-events:none;
+  z-index:1;
+}
+.map-container iframe{
+  display:block;
+  width:100%;
+  height:420px;
+  border:0;
+  filter:grayscale(1) invert(0.9) hue-rotate(160deg) brightness(0.75) contrast(1.1);
+  transition:filter .4s ease;
+}
+.map-container:hover iframe{
+  filter:grayscale(0.7) invert(0.85) hue-rotate(155deg) brightness(0.8) contrast(1.05);
+}
+.map-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 20px;
+  background:rgba(200,255,0,.04);
+  border-top:1px solid rgba(200,255,0,.1);
+}
+.map-address{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:.75rem;
+  letter-spacing:.15em;
+  color:var(--g4);
+  text-transform:uppercase;
+  -webkit-user-select:none;user-select:none;
+}
+.map-directions{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:.7rem;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  color:var(--neon);
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  transition:gap .3s,opacity .3s;
+  opacity:.8;
+  -webkit-user-select:none;user-select:none;
+  white-space:nowrap;
+}
+.map-directions:hover{gap:14px;opacity:1}
+.map-directions:active{opacity:.6}
+
 /* ══ ABOUT PAGE ══ */
 #page-about .about-wrap{
   padding:clamp(120px,16vw,200px) var(--pad) clamp(60px,8vw,100px);
@@ -409,6 +493,8 @@ footer{padding:60px var(--pad);padding-bottom:calc(60px + var(--safe-bottom));bo
   .bikes-grid{grid-template-columns:1fr}
   .shop-grid{grid-template-columns:1fr}
   .sctl{gap:16px}
+  .map-container iframe{height:300px}
+  .map-footer{flex-direction:column;align-items:flex-start;gap:12px}
 }
 
 @media(max-width:480px){
@@ -447,6 +533,7 @@ footer{padding:60px var(--pad);padding-bottom:calc(60px + var(--safe-bottom));bo
   .tslider{margin-top:24px}
   .tt{font-size:clamp(1rem,2.5vw,1.4rem);margin-bottom:24px}
   .ta{font-size:1.2rem}
+  .map-container iframe{height:250px}
 }
 
 @media(max-width:360px){
@@ -557,7 +644,6 @@ footer{padding:60px var(--pad);padding-bottom:calc(60px + var(--safe-bottom));bo
     <div class="sec-label reveal">Featured Collection</div>
     <h2 class="sec-title reveal d1">ENGINEERED<br>TO <em>PERFORM</em></h2>
     <div class="bikes-grid">
-      <!-- CARD 1: UPDATED BLUE BIKE -->
       <div class="bike-card-real reveal" onclick="showPage('shop')">
         <div class="bcr-img">
           <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663590122369/PipzWFwCUPfQlreE.png" alt="AVROX SAND Blue Edition" class="multiply-fix">
@@ -579,7 +665,6 @@ footer{padding:60px var(--pad);padding-bottom:calc(60px + var(--safe-bottom));bo
         </div>
       </div>
 
-      <!-- CARD 2: UPDATED RED BIKE -->
       <div class="bike-card-real reveal d1" onclick="showPage('shop')">
         <div class="bcr-img">
           <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663590122369/EfSMPKGUUzquNYpm.png" alt="AVROX SAND Red Edition" class="multiply-fix">
@@ -601,7 +686,6 @@ footer{padding:60px var(--pad);padding-bottom:calc(60px + var(--safe-bottom));bo
         </div>
       </div>
 
-      <!-- CARD 3: ACROLT X10 -->
       <div class="bike-card-real reveal d2" onclick="showPage('shop')">
         <div class="bcr-img">
           <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663590535503/ulXWmXpivKaByWXG.png" alt="Acrolt X10 MTB Bike">
@@ -878,6 +962,28 @@ footer{padding:60px var(--pad);padding-bottom:calc(60px + var(--safe-bottom));bo
         <button type="submit" class="cf-submit">Send Message &#8594;</button>
         <div class="cf-success" id="cfSuccess">&#10003; Message sent! We'll be in touch within 24 hours.</div>
       </form>
+    </div>
+  </div>
+
+  <!-- ══ MAP ══ -->
+  <div class="map-section reveal">
+    <div class="map-label">Find Us On The Map</div>
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3408.758387339801!2d75.6264576!3d31.3104224!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a59426c0b03c1%3A0x490efd7d2eab5bc7!2sSunil%20cycle%20works!5e0!3m2!1sen!2sin!4v1777025871434!5m2!1sen!2sin"
+        width="600"
+        height="420"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="GearMyCycle Shop Location">
+      </iframe>
+      <div class="map-footer">
+        <div class="map-address">Main Market, Near City Station · Jalandhar, Punjab 144001</div>
+        <a class="map-directions" href="https://maps.google.com/?q=31.3104224,75.6264576" target="_blank" rel="noopener">
+          Get Directions &#8594;
+        </a>
+      </div>
     </div>
   </div>
 </div>
