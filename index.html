@@ -188,7 +188,7 @@ nav.open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
 .sec-label{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;letter-spacing:.5em;text-transform:uppercase;color:var(--neon);margin-bottom:12px}
 .sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,6vw,4.5rem);line-height:.95;margin-bottom:clamp(40px,8vw,80px)}
 .sec-title em{font-style:normal;color:var(--neon)}
-.bikes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:2px;margin-top:clamp(40px,8vw,80px)}
+.bikes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:clamp(40px,8vw,80px)}
 
 .bike-card{cursor:pointer;position:relative;overflow:hidden}
 .bci{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:transform .4s cubic-bezier(.16,1,.3,1);transform-style:preserve-3d;perspective:1000px}
@@ -211,7 +211,7 @@ nav.open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
 .b-desc{font-size:.78rem;color:var(--g4);line-height:1.6;margin-bottom:12px}
 .b-price{font-family:'Barlow Condensed',sans-serif;font-size:.75rem;letter-spacing:.15em;color:var(--neon);font-weight:600}
 
-.bike-card-real{cursor:pointer;position:relative;overflow:hidden}
+.bike-card-real{cursor:pointer;position:relative;overflow:hidden;display:flex;flex-direction:column}
 .bcr-img{
   position:relative;aspect-ratio:1;
   background:linear-gradient(135deg,#0f0f0f,#1e1e1e);
@@ -647,14 +647,14 @@ footer{
         </div>
       </div>
 
-      <div class="bike-card-real reveal d1" onclick="showPage(\'shop\')">
+      <div class="bike-card-real reveal d1" onclick="showPage('shop')">
         <div class="bcr-img">
-          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663590454131/ElvUtfflhuLlwgqI.png" alt="AVROX SAND 26x4.00\" MULTISPEED Fat Bike">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663590454131/ElvUtfflhuLlwgqI.png" alt="AVROX SAND Red Edition">
           <div class="bcr-overlay"></div>
         </div>
         <div class="bcr-content">
           <div class="bcr-tag">Fat Bike · Premium</div>
-          <div class="bcr-name">AVROX SAND</div>
+          <div class="bcr-name">AVROX SAND RED</div>
           <div class="bcr-specs">
             <ul>
               <li>Hexa Pipe Steel Frame</li>
@@ -664,16 +664,18 @@ footer{
               <li>Fat Steel Rim</li>
             </ul>
           </div>
-          <div class="bcr-price">Starting ₹ 12,000</div>
+          <div class="bcr-price">Starting ₹ 15,000</div>
         </div>
-      </di      <div class="bike-card-real reveal d2" onclick="showPage(\'shop\')">
+      </div>
+
+      <div class="bike-card-real reveal d2" onclick="showPage('shop')">
         <div class="bcr-img">
-          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663590454131/eDaIEsLmIlftstRB.png" alt="AVROX SAND 26x4.00\" MULTISPEED Fat Bike">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663590454131/eDaIEsLmIlftstRB.png" alt="AVROX SAND Blue Edition">
           <div class="bcr-overlay"></div>
         </div>
         <div class="bcr-content">
           <div class="bcr-tag">Fat Bike · Premium</div>
-          <div class="bcr-name">AVROX SAND</div>
+          <div class="bcr-name">AVROX SAND BLUE</div>
           <div class="bcr-specs">
             <ul>
               <li>Hexa Pipe Steel Frame</li>
@@ -683,7 +685,7 @@ footer{
               <li>Fat Steel Rim</li>
             </ul>
           </div>
-          <div class="bcr-price">Starting ₹ 12,000</div>
+          <div class="bcr-price">Starting ₹ 15,000</div>
         </div>
       </div>
     </div>
