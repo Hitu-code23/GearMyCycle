@@ -188,7 +188,7 @@ nav.open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
 .sec-label{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;letter-spacing:.5em;text-transform:uppercase;color:var(--neon);margin-bottom:12px}
 .sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,6vw,4.5rem);line-height:.95;margin-bottom:clamp(40px,8vw,80px)}
 .sec-title em{font-style:normal;color:var(--neon)}
-.bikes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:clamp(40px,8vw,80px)}
+.bikes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:clamp(40px,8vw,80px)}
 
 .bike-card{cursor:pointer;position:relative;overflow:hidden}
 .bci{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:transform .4s cubic-bezier(.16,1,.3,1);transform-style:preserve-3d;perspective:1000px}
@@ -211,34 +211,76 @@ nav.open .nav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)
 .b-desc{font-size:.78rem;color:var(--g4);line-height:1.6;margin-bottom:12px}
 .b-price{font-family:'Barlow Condensed',sans-serif;font-size:.75rem;letter-spacing:.15em;color:var(--neon);font-weight:600}
 
-.bike-card-real{cursor:pointer;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.bike-card-real{
+  cursor:pointer;position:relative;overflow:hidden;display:flex;flex-direction:column;
+  background:rgba(20,20,20,0.4);backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.05);transition:all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.bike-card-real:hover{
+  border-color:rgba(200,255,0,0.3);
+  box-shadow:0 25px 50px -12px rgba(0,0,0,0.5), 0 0 20px rgba(200,255,0,0.1);
+  transform:translateY(-10px);
+}
 .bcr-img{
   position:relative;aspect-ratio:1;
-  background:#0a0a0a;
+  background:radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
   display:flex;align-items:center;justify-content:center;
-  overflow:hidden;
-  transition:transform .4s cubic-bezier(.16,1,.3,1);
+  overflow:hidden;transition:all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
-.bike-card-real:hover .bcr-img{transform:scale(1.04)}
-.bcr-img img{width:92%;height:92%;object-fit:contain;filter:drop-shadow(0 0 20px rgba(200,255,0,.15));transition:filter .4s;mix-blend-mode:screen}
-.bike-card-real:hover .bcr-img img{filter:drop-shadow(0 0 40px rgba(200,255,0,.35))}
+.bcr-img::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(45deg, transparent 40%, rgba(200,255,0,0.05) 50%, transparent 60%);
+  transform:translateX(-100%);transition:transform 0.8s ease;
+}
+.bike-card-real:hover .bcr-img::after{transform:translateX(100%)}
+.bcr-img img{
+  width:90%;height:90%;object-fit:contain;
+  filter:drop-shadow(0 0 15px rgba(0,0,0,0.8));
+  transition:all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  mix-blend-mode:screen;
+}
+.bike-card-real:hover .bcr-img img{transform:scale(1.1) rotate(-3deg);filter:drop-shadow(0 10px 30px rgba(200,255,0,0.25))}
 .bcr-overlay{
   position:absolute;inset:0;
-  background:radial-gradient(circle at 30% 30%,rgba(200,255,0,.12),transparent 60%);
-  pointer-events:none;z-index:1;
-  opacity:0;
-  transition:opacity .4s ease;
+  background:radial-gradient(circle at center,rgba(200,255,0,0.08),transparent 70%);
+  pointer-events:none;z-index:1;opacity:0.3;transition:opacity 0.4s ease;
 }
-.bike-card-real:hover .bcr-overlay{opacity:1}
-.bcr-content{position:absolute;inset:0;padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(to top,rgba(7,7,7,.97) 0%,rgba(7,7,7,.4) 60%,transparent 100%);opacity:0;transform:translateY(16px);transition:opacity .4s,transform .4s cubic-bezier(.16,1,.3,1);z-index:2}
-.bike-card-real:hover .bcr-content{opacity:1;transform:translateY(0)}
-.bcr-tag{font-family:'Barlow Condensed',sans-serif;font-size:.56rem;letter-spacing:.3em;text-transform:uppercase;color:var(--neon);margin-bottom:8px}
-.bcr-name{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:.08em;margin-bottom:8px;line-height:1}
-.bcr-specs{font-size:.75rem;color:var(--g4);line-height:1.6;margin-bottom:12px;max-height:60px;overflow:hidden}
+.bike-card-real:hover .bcr-overlay{opacity:0.8}
+.bcr-content{
+  position:absolute;inset:0;padding:clamp(20px,3vw,32px);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  background:linear-gradient(to top, rgba(7,7,7,0.95) 0%, rgba(7,7,7,0.2) 50%, transparent 100%);
+  transition:all 0.5s cubic-bezier(0.23, 1, 0.32, 1);z-index:2;
+}
+.bcr-tag{
+  font-family:'Barlow Condensed',sans-serif;font-size:0.65rem;letter-spacing:0.4em;
+  text-transform:uppercase;color:var(--neon);margin-bottom:8px;
+  opacity:0.8;transform:translateY(10px);transition:all 0.4s ease 0.1s;
+}
+.bcr-name{
+  font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:0.05em;
+  margin-bottom:10px;line-height:0.9;color:#fff;
+  transform:translateY(10px);transition:all 0.4s ease 0.15s;
+}
+.bcr-specs{
+  font-size:0.75rem;color:rgba(255,255,255,0.6);line-height:1.5;
+  margin-bottom:15px;max-height:0;overflow:hidden;
+  transition:all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.bike-card-real:hover .bcr-specs{max-height:100px;margin-bottom:20px}
+.bike-card-real:hover .bcr-tag, .bike-card-real:hover .bcr-name{transform:translateY(0);opacity:1}
 .bcr-specs ul{list-style:none;padding:0;margin:0}
-.bcr-specs li{display:flex;align-items:center;gap:6px;margin-bottom:4px}
-.bcr-specs li::before{content:'•';color:var(--neon);font-weight:bold}
-.bcr-price{font-family:'Barlow Condensed',sans-serif;font-size:.75rem;letter-spacing:.15em;color:var(--neon);font-weight:600}
+.bcr-specs li{display:flex;align-items:center;gap:8px;margin-bottom:5px}
+.bcr-specs li::before{content:'';width:4px;height:4px;background:var(--neon);border-radius:50%;box-shadow:0 0 5px var(--neon)}
+.bcr-price{
+  font-family:'Barlow Condensed',sans-serif;font-size:0.9rem;letter-spacing:0.15em;
+  color:var(--neon);font-weight:700;display:flex;align-items:center;justify-content:space-between;
+}
+.bcr-price::after{
+  content:'VIEW DETAILS →';font-size:0.6rem;letter-spacing:0.2em;
+  color:#fff;opacity:0;transform:translateX(-10px);transition:all 0.4s ease;
+}
+.bike-card-real:hover .bcr-price::after{opacity:1;transform:translateX(0)}
 
 /* ══ WHY ══ */
 #why{padding:clamp(70px,10vw,140px) var(--pad)}
@@ -649,7 +691,7 @@ footer{
 
       <div class="bike-card-real reveal d1" onclick="showPage('shop')">
         <div class="bcr-img">
-          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663590454131/ElvUtfflhuLlwgqI.png" alt="AVROX SAND Red Edition" style="mix-blend-mode:screen; filter: brightness(1.1) contrast(1.1);">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663590454131/ElvUtfflhuLlwgqI.png" alt="AVROX SAND Red Edition">
           <div class="bcr-overlay"></div>
         </div>
         <div class="bcr-content">
@@ -670,7 +712,7 @@ footer{
 
       <div class="bike-card-real reveal d2" onclick="showPage('shop')">
         <div class="bcr-img">
-          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663590454131/eDaIEsLmIlftstRB.png" alt="AVROX SAND Blue Edition" style="mix-blend-mode:screen; filter: brightness(1.1) contrast(1.1);">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663590454131/eDaIEsLmIlftstRB.png" alt="AVROX SAND Blue Edition">
           <div class="bcr-overlay"></div>
         </div>
         <div class="bcr-content">
