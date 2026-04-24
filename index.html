@@ -509,14 +509,15 @@ footer{
   .nav-links,.nav-cta{display:none}
   .nav-burger{display:flex}
   
-  #hero{justify-content:center;text-align:center;padding-top:120px}
-  .hero-content{text-align:center}
+  #hero{justify-content:flex-start;text-align:left;padding-top:120px}
+  .hero-content{text-align:left}
   .hero-bike::after{
-    background:radial-gradient(circle at center, transparent 0%, var(--black) 90%);
+    background:linear-gradient(to bottom, transparent 50%, var(--black) 100%),
+               linear-gradient(to right, var(--black) 0%, transparent 80%);
   }
   .h-title{font-size:clamp(3rem,15vw,5.5rem)}
-  .h-sub{margin:0 auto 32px}
-  .h-cta{width:100%;justify-content:center}
+  .h-sub{margin:0 0 32px}
+  .h-cta{width:auto;justify-content:center}
 
   #page-contact .contact-wrap{grid-template-columns:1fr}
   #story{height:140vh}
